@@ -25,7 +25,7 @@ Docker networks enable communication between containers. Docker provides differe
 
 ## Basic Container Management
 
-```sh
+```bash
 docker start <container_name>    # Start a stopped container
 docker stop <container_name>     # Stop a running container
 docker restart <container_name>  # Restart a container
@@ -37,7 +37,7 @@ docker container ls              # Alternative to 'docker ps'
 
 ## Image Management
 
-```sh
+```bash
 docker images                   # List all images
 docker image ls                 # Alternative to 'docker images'
 docker rmi <image_id>           # Remove an image
@@ -49,7 +49,7 @@ docker tag <image_id> <repo>:<tag>  # Tag an image for pushing
 
 ## Running Containers
 
-```sh
+```bash
 docker run -it <image_name>      # Run a container interactively
 docker run -it -p <exposing_port:internal_port> <image_name>  # Port mapping
 docker run -it -p 8000:8000 docker-app-1  # Example of port mapping
@@ -60,7 +60,7 @@ docker run --rm <image_name>  # Remove container after it stops
 
 ## Executing Commands Inside a Container
 
-```sh
+```bash
 docker exec -it <container_name> <command>  # Execute a command inside a running container
 docker exec -it <container_name> bash       # Open an interactive Bash shell
 docker attach <container_name>              # Attach to a running container
@@ -70,7 +70,7 @@ docker logs -f <container_name>             # Follow logs in real time
 
 ## Networking
 
-```sh
+```bash
 docker network ls                           # List all networks
 docker network create <network_name>        # Create a custom network
 docker network inspect <network_name>       # Inspect a network
@@ -81,7 +81,7 @@ docker network rm <network_name>            # Remove a network
 
 ## Volume Management
 
-```sh
+```bash
 docker volume ls                            # List all volumes
 docker volume create <volume_name>          # Create a volume
 docker volume inspect <volume_name>         # Inspect volume details
@@ -91,7 +91,7 @@ docker run -v <volume_name>:<container_path> <image_name>  # Mount a volume to a
 
 ## Docker Compose
 
-```sh
+```bash
 docker-compose up                           # Start containers
 docker-compose up -d                        # Start in detached mode
 docker-compose down                         # Stop and remove containers
@@ -103,7 +103,7 @@ docker-compose exec <service_name> <command>  # Run command in a running service
 
 ## Cleanup Unused Resources
 
-```sh
+```bash
 docker system prune                         # Remove unused containers, networks, and images
 docker system prune -a                      # Remove all unused images, containers, and networks
 docker container prune                      # Remove all stopped containers
