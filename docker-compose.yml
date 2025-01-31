@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  node-app:
+    build:
+      context: . # The current directory contains the Dockerfile
+    ports:
+      - "3000:3000" # Map port 3000 on the host to port 3000 in the container
+    container_name: my-node-app-container
+    restart: always # Restart the container automatically if it crashes
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  postgres:
+    image: postgres:15 # Use a stable version of PostgreSQL
+    container_name: postgres-container
+    restart: always
+    ports:
+      - "5432:5432" # Map port 5432 on the host to port 5432 in the container
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+
+  redis:
+    image: redis:latest # Use the latest Redis image
+    container_name: redis-container
+    restart: always
+    ports:
+      - "6379:6379" # Map port 6379 on the host to port 6379 in the container
